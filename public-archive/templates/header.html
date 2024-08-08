@@ -1,0 +1,43 @@
+{{define "header"}}
+<head>
+    <title>{{or .Title "Public Archive"}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #center {
+            padding-left: 35%;
+        }
+
+        #nav {
+            padding-top: 0.5%;
+            padding-left: 40%;
+        }
+      
+        #nav-ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: inline;
+        }
+
+        #nav-li {
+            float: left;
+            padding-right: 2%;
+        }
+
+        #vid {
+            height: auto;
+            min-width: 100%;
+        }
+
+        #ul-none-left {
+            list-style-type: none;
+            margin-left: 30%;
+        }
+    </style>
+</head>
+{{end}}

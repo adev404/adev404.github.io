@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{template "header" .}}
+    <body>
+        {{template "navbar"}}
+        <div class="container">
+            <h1 id="center">{{.H1}}</h1>
+            <select id="srcSelect">
+                {{ range $k, $v := .Sources}}
+                    <option value="{{$v}}">{{$k}}</option>
+                {{end}}
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a id="main_header" href="{{.StartSrc}}">{{.StartName}}</a>
+            </div>
+
+        </div>
+        <div class="container">
+            <video src="{{.StartSrc}}" preload="auto" controls id="vid" height="auto" width="100vw"></video>
+        </div>
+        <script>
+            let selections = document.getElementById("srcSelect")
+            selections.addEventListener("change", () => {
+                let src = selections.options[selections.selectedIndex].value
+                let src_name = selections.options[selections.selectedIndex].innerText
+
+                let vsrc = document.getElementById("vid")
+                vsrc.setAttribute("src", src)
+
+                let mh = document.getElementById("main_header")
+                mh.innerText = src_name
+                mh.setAttribute("href", src)
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <title>Video</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #center {
+            padding-left: 35%;
+        }
+
+        #nav {
+            padding-top: 0.5%;
+            padding-left: 40%;
+        }
+      
+        #nav-ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: inline;
+        }
+
+        #nav-li {
+            float: left;
+            padding-right: 2%;
+        }
+
+        #vid {
+            height: auto;
+            min-width: 100%;
+        }
+
+        #ul-none-left {
+            list-style-type: none;
+            margin-left: 30%;
+        }
+    </style>
+</head>
+
+    <body>
+        
+<div id="nav">
+    <ul id="nav-ul">
+        <li id="nav-li"><a href="/">Home</a></li>
+        <li id="nav-li"><a href="/video.html">Video</a></li>
+        <li id="nav-li"><a href="/audio.html">Audio</a></li>
+        <li id="nav-li"><a href="/image.html">Image</a></li>
+        <li id="nav-li"><a href="/text.html">Text</a></li>
+    </ul>
+</div>
+
+        <div class="container">
+            <h1 id="center">Public Archive: Video</h1>
+            <select id="srcSelect">
+                
+                    <option value="https://ia801809.us.archive.org/6/items/code-rush-2000/Code%20Rush%20%282000%29-Decombed.ia.mp4">Code Rush 2000</option>
+                
+                    <option value="https://upload.wikimedia.org/wikipedia/commons/transcoded/3/36/Cosmos_Laundromat_-_First_Cycle_-_Official_Blender_Foundation_release.webm/Cosmos_Laundromat_-_First_Cycle_-_Official_Blender_Foundation_release.webm.720p.vp9.webm">Cosmos Laundromat</option>
+                
+                    <option value="https://ia802809.us.archive.org/10/items/Good_Copy_Bad_Copy-film/GCBC_SCR.XviD_512kb.mp4">Good Copy Bad Copy</option>
+                
+                    <option value="https://ia600403.us.archive.org/27/items/rip-a-remix-manifesto-8040182/RIP%20%EF%BC%9A%20A%20Remix%20Manifesto%20%5B8040182%5D.mp4">RIP a Remix Manifesto</option>
+                
+                    <option value="https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a5/Spring_-_Blender_Open_Movie.webm/Spring_-_Blender_Open_Movie.webm.720p.vp9.webm">Spring Blender 2019</option>
+                
+                    <option value="https://ia802904.us.archive.org/0/items/TpbAfkThePirateBayAwayFromKeyboard/TPB.AFK.2013.480p.vp8-SimonKlose.mp4">TPB AFK 2013</option>
+                
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a id="main_header" href="https://ia801809.us.archive.org/6/items/code-rush-2000/Code%20Rush%20%282000%29-Decombed.ia.mp4">Code Rush 2000</a>
+            </div>
+
+        </div>
+        <div class="container">
+            <video src="https://ia801809.us.archive.org/6/items/code-rush-2000/Code%20Rush%20%282000%29-Decombed.ia.mp4" preload="auto" controls id="vid" height="auto" width="100vw"></video>
+        </div>
+        <script>
+            let selections = document.getElementById("srcSelect")
+            selections.addEventListener("change", () => {
+                let src = selections.options[selections.selectedIndex].value
+                let src_name = selections.options[selections.selectedIndex].innerText
+
+                let vsrc = document.getElementById("vid")
+                vsrc.setAttribute("src", src)
+
+                let mh = document.getElementById("main_header")
+                mh.innerText = src_name
+                mh.setAttribute("href", src)
+            })
+        </script>
+    </body>
+</html>

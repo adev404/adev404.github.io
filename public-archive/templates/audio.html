@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{template "header" .}}
+    <body>
+        {{template "navbar"}}
+        <h1 id="center">{{.H1}}</h1>
+        <div class="container">
+            <ul id="ul-none-left">
+                {{ range $k, $v := .Sources}}
+                <li>
+                    <audio src="{{$v}}" controls loop></audio>&nbsp;&nbsp;<a href="{{$v}}">{{$k}}</a>
+                </li>
+                {{end}}
+            </ul>
+        </div>
+    </body>
+</html>

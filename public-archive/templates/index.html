@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--Note: the "." is required when propagating data to templates-->
+    {{template "header" .}}
+    <body>
+        {{template "navbar" .}}
+        <br>
+        <h1 id="nav">{{.H1}}</h1>
+        <br>
+        <p style="margin-left: 21%;">{{.P}}</p>
+    </body>
+</html>
