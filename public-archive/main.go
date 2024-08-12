@@ -40,11 +40,15 @@ func main() {
 		os.Exit(0)
 	}
 
-	http.HandleFunc("/", archive.IndexHandler)
-	http.HandleFunc("/video.html", archive.VideoHandler)
-	http.HandleFunc("/audio.html", archive.AudioHandler)
-	http.HandleFunc("/image.html", archive.ImageHandler)
-	http.HandleFunc("/text.html", archive.TextHandler)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/public-archive", http.StatusFound)
+	})
+
+	http.HandleFunc("/public-archive", archive.IndexHandler)
+	http.HandleFunc("/public-archive/video", archive.VideoHandler)
+	http.HandleFunc("/public-archive/audio", archive.AudioHandler)
+	http.HandleFunc("/public-archive/image", archive.ImageHandler)
+	http.HandleFunc("/public-archive/text", archive.TextHandler)
 
 	log.Printf("Serving on %s ...", *port)
 	log.Fatal(http.ListenAndServe(":"+*port, nil))

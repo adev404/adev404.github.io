@@ -5,9 +5,14 @@
         {{template "navbar"}}
         <h1 id="center">{{.H1}}</h1>
         <div class="container">
-            <ul id="center">
+            <ul style="margin-left: 0; padding-left: 0">
                 {{ range $k, $v := .Sources}}
-                <li><a href="{{$v}}">{{$k}}</a></li>
+                <h4><a href="{{$v}}">{{$k}}</a></h4>
+                <br>
+                <!--<li><a href="{{$v}}">{{$k}}</a></li>-->
+                <div class="container">
+                    <iframe src="{{$v}}" loading="lazy" height="auto" width="100%"></iframe>
+                </div>
                 {{end}}
             </ul>
         </div>
